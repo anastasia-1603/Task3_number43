@@ -2,9 +2,9 @@ package ru.vsu.cs.lazutkina;
 
 public class HorizontalParabola
 {
-    public double x0;
-    public double y0;
-    public double a;
+    private double x0;
+    private double y0;
+    private double a;
 
     public HorizontalParabola(double x0, double y0, double a)
     {

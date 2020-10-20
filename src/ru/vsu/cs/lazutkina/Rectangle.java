@@ -2,10 +2,10 @@ package ru.vsu.cs.lazutkina;
 
 public class Rectangle
 {
-    public double x1;
-    public double x2;
-    public double y1;
-    public double y2;
+    private double x1;
+    private double x2;
+    private double y1;
+    private double y2;
 
     public Rectangle(double x1, double x2, double y1, double y2)
     {

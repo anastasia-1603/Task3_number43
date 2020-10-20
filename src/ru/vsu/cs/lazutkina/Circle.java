@@ -2,9 +2,9 @@ package ru.vsu.cs.lazutkina;
 
 public class Circle
 {
-    public double x0;
-    public double y0;
-    public double r;
+    private double x0;
+    private double y0;
+    private double r;
 
     public Circle(double x0, double y0, double r)
     {

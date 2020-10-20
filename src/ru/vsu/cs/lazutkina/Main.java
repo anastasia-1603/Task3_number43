@@ -10,8 +10,8 @@ public class Main {
         Picture picture = new Picture(new Circle(-1, 0, 4), new HorizontalParabola(3, 6, 0.125),
                           new Rectangle(1, 8, 3, 7));
         runTest(picture);
-        double x = readPoint("x");
-        double y = readPoint("y");
+        double x = readCoordinate("x");
+        double y = readCoordinate("y");
         printColorForPoint(x, y, picture);
     }
 
@@ -20,7 +20,7 @@ public class Main {
         System.out.printf("(%.2f, %.2f) -> %s\n", x, y, picture.getColor(x, y));
     }
 
-    private static double readPoint(String name)
+    private static double readCoordinate(String name)
     {
         Scanner scanner = new Scanner(System.in);
         System.out.printf("Enter coordinate %s from -10 to 10: ", name);
@@ -45,11 +45,6 @@ public class Main {
         }
     }
 
-    private static void reportError()
-    {
-        System.out.print("Error! Try again ");
-    }
-
     private static double checkModuloCoordinateLess10(double coordinate)
     {
         if (coordinate < -10 || coordinate > 10)
@@ -59,5 +54,10 @@ public class Main {
             return checkModuloCoordinateLess10(newCoordinate.nextDouble());
         }
         return coordinate;
+    }
+
+    private static void reportError()
+    {
+        System.out.print("Error! Try again ");
     }
 }
