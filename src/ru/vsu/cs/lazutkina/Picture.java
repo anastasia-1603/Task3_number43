@@ -12,8 +12,10 @@ public class Picture
         this.parabola = parabola;
         this.rectangle = rectangle;
     }
-    public SimpleColor getColor(double x, double y)
+    public SimpleColor getColor(Point point)
     {
+        double x = point.x;
+        double y = point.y;
         if ((rectangle.isPointInside(x, y)) ^ (circle.isPointInside(x, y)) && !(parabola.isPointInside(x, y)))
         {
             return SimpleColor.GREEN;

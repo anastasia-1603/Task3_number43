@@ -9,15 +9,20 @@ public class Main {
         Locale.setDefault(Locale.ROOT);
         Picture picture = new Picture(new Circle(-1, 0, 4), new HorizontalParabola(3, 6, 0.125),
                           new Rectangle(1, 8, 3, 7));
+
         runTest(picture);
+
         double x = readCoordinate("x");
         double y = readCoordinate("y");
-        printColorForPoint(x, y, picture);
+
+        Point point = new Point(x, y);
+        SimpleColor color = picture.getColor(point);
+        printColorForPoint(point, color);
     }
 
-    private static void printColorForPoint(double x, double y, Picture picture)
+    private static void printColorForPoint(Point point, SimpleColor color)
     {
-        System.out.printf("(%.2f, %.2f) -> %s\n", x, y, picture.getColor(x, y));
+        System.out.printf("(%.2f, %.2f)--> %s\n", point.x, point.y, color);
     }
 
     private static double readCoordinate(String name)
@@ -29,35 +34,42 @@ public class Main {
 
     private static void runTest(Picture picture)
     {
-        SimpleColor[] colors = SimpleColor.values();
+        SimpleColor[] expectedColors = {SimpleColor.GREEN, SimpleColor.WHITE,
+                                        SimpleColor.GREY, SimpleColor.BLUE, SimpleColor.YELLOW};
         double[][] arrayOfPoints = {{0, 1.1, 6, 9, -7}, {0, 3.1, 6, 2, 3}};
-        if (arrayOfPoints[0].length == colors.length)
-        {
-            for (int i = 0; i < colors.length; i++)
+
+        for (int i = 0; i < expectedColors.length; i++)
             {
-                System.out.printf("(%.2f ; %.2f)-->%s  Expected: %s\n", arrayOfPoints[0][i], arrayOfPoints[1][i],
-                                          picture.getColor(arrayOfPoints[0][i], arrayOfPoints[1][i]), colors[i]);
+                Point point = new Point(arrayOfPoints[0][i], arrayOfPoints[1][i]);
+
+                SimpleColor color = picture.getColor(point);
+                SimpleColor expectedColor = expectedColors[i];
+
+                if (color == expectedColor)
+                {
+                    printResult(point, color, expectedColor, "correct");
+                }
+                else
+                {
+                    printResult(point, color, expectedColor, "incorrect");
+                }
             }
-        }
-        else
-        {
-            reportError();
-        }
     }
 
     private static double checkModuloCoordinateLess10(double coordinate)
     {
         if (coordinate < -10 || coordinate > 10)
         {
-            reportError();
+            System.out.print("Error! Try again: ");
             Scanner newCoordinate = new Scanner(System.in);
             return checkModuloCoordinateLess10(newCoordinate.nextDouble());
         }
         return coordinate;
     }
 
-    private static void reportError()
+    private static void printResult (Point point, SimpleColor color, SimpleColor expectedColor, String conclusion)
     {
-        System.out.print("Error! Try again ");
+        System.out.printf("(%.2f ; %.2f)-->%s;  Expected: %s; Тhe result is %s.\n",
+                point.x, point.y, color, expectedColor, conclusion);
     }
 }
