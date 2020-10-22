@@ -67,7 +67,7 @@ public class Main {
         return coordinate;
     }
 
-    private static void printResult (Point point, SimpleColor color, SimpleColor expectedColor, String conclusion)
+    private static void printResult(Point point, SimpleColor color, SimpleColor expectedColor, String conclusion)
     {
         System.out.printf("(%.2f ; %.2f)-->%s;  Expected: %s; Тhe result is %s.\n",
                 point.x, point.y, color, expectedColor, conclusion);
