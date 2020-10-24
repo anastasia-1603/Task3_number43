@@ -14,6 +14,7 @@ public class Rectangle
         this.y1 = y1;
         this.y2 = y2;
     }
+
     public boolean isPointInside(double x, double y)
     {
         return x1<=x && x<=x2 && y1<=y && y<=y2;

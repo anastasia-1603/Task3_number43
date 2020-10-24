@@ -12,6 +12,7 @@ public class HorizontalParabola
         this.y0 = y0;
         this.a = a;
     }
+
     public boolean isPointInside(double x, double y)
     {
         if (a > 0)

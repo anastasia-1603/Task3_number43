@@ -12,6 +12,7 @@ public class Picture
         this.parabola = parabola;
         this.rectangle = rectangle;
     }
+
     public SimpleColor getColor(Point point)
     {
         double x = point.x;

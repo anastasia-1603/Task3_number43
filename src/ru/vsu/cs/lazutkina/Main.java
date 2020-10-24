@@ -3,13 +3,14 @@ package ru.vsu.cs.lazutkina;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Main {
+public class Main
+{
+
     public static void main(String[] args)
     {
         Locale.setDefault(Locale.ROOT);
         Picture picture = new Picture(new Circle(-1, 0, 4), new HorizontalParabola(3, 6, 0.125),
                           new Rectangle(1, 8, 3, 7));
-
         runTest(picture);
 
         double x = readCoordinate("x");
@@ -36,22 +37,23 @@ public class Main {
     {
         SimpleColor[] expectedColors = {SimpleColor.GREEN, SimpleColor.WHITE,
                                         SimpleColor.GREY, SimpleColor.BLUE, SimpleColor.YELLOW};
-        double[][] arrayOfPoints = {{0, 1.1, 6, 9, -7}, {0, 3.1, 6, 2, 3}};
+        Point[] points = {new Point(0, 0), new Point(1.1, 3.1), new Point(6, 6),
+            new Point(9, 2), new Point(-7, 3)};
 
         for (int i = 0; i < expectedColors.length; i++)
             {
-                Point point = new Point(arrayOfPoints[0][i], arrayOfPoints[1][i]);
-
-                SimpleColor color = picture.getColor(point);
+                SimpleColor color = picture.getColor(points[i]);
                 SimpleColor expectedColor = expectedColors[i];
 
                 if (color == expectedColor)
                 {
-                    printResult(point, color, expectedColor, "correct");
+                    printResult(points[i], color, expectedColor, "correct");
+
                 }
                 else
                 {
-                    printResult(point, color, expectedColor, "incorrect");
+                    printResult(points[i], color, expectedColor, "incorrect");
+                    System.exit(1);
                 }
             }
     }
