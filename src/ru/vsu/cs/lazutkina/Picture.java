@@ -17,6 +17,7 @@ public class Picture
     {
         double x = point.x;
         double y = point.y;
+
         if ((rectangle.isPointInside(x, y)) ^ (circle.isPointInside(x, y)) && !(parabola.isPointInside(x, y)))
         {
             return SimpleColor.GREEN;

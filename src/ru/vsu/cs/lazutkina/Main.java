@@ -1,6 +1,6 @@
 package ru.vsu.cs.lazutkina;
 
-import java.util.Locale;
+import java.util.Locale; 
 import java.util.Scanner;
 
 public class Main
@@ -8,6 +8,7 @@ public class Main
     public static void main(String[] args)
     {
         Locale.setDefault(Locale.ROOT);
+
         Picture picture = new Picture(new Circle(-1, 0, 4), new HorizontalParabola(3, 6, 0.125),
                 new Rectangle(1, 8, 3, 7));
 
@@ -30,6 +31,7 @@ public class Main
                 new Point(9, 2), new Point(-7, 3)};
 
         boolean result = true;
+
         for (int i = 0; i < expectedColors.length; i++)
         {
             SimpleColor color = picture.getColor(points[i]);
