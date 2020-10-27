@@ -71,7 +71,7 @@ public class Main
 
     private static void printColorForPoint(Point point, SimpleColor color)
     {
-        System.out.printf("(%.2f, %.2f)--> %s\n", point.x, point.y, color);
+        System.out.printf("(%.2f, %.2f)--> %s\n", point.getX(), point.getY(), color);
     }
 
     private static void printResult(Point point, SimpleColor color, SimpleColor expectedColor, String conclusion)
