@@ -11,8 +11,14 @@ public class Main
         Picture picture = new Picture(new Circle(-1, 0, 4), new HorizontalParabola(3, 6, 0.125),
                 new Rectangle(1, 8, 3, 7));
 
-        finishProgramOnError(runTest(picture));
-        readCoordinatesAndPrintColor(picture);
+        if (runTest(picture))
+        {
+            readCoordinatesAndPrintColor(picture);
+        }
+        else
+        {
+            System.out.println("The program does not work correctly");
+        }
     }
 
     private static boolean runTest(Picture picture)
@@ -77,15 +83,6 @@ public class Main
     private static void printResult(Point point, SimpleColor color, SimpleColor expectedColor, String conclusion)
     {
         System.out.printf("(%.2f ; %.2f)-->%s;  Expected: %s; Тhe result is %s.\n",
-                point.x, point.y, color, expectedColor, conclusion);
-    }
-
-    private static void finishProgramOnError(boolean result)
-    {
-        if (!result)
-        {
-            System.out.println("The program does not work correctly");
-            System.exit(1);
-        }
+                point.getX(), point.getY(), color, expectedColor, conclusion);
     }
 }
