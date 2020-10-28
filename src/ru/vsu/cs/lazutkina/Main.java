@@ -39,12 +39,12 @@ public class Main
 
             if (color != expectedColor)
             {
-                printResult(points[i], color, expectedColor, "incorrect");
+                printTestResult(points[i], color, expectedColor, "incorrect");
                 result = false;
             }
             else
             {
-                printResult(points[i], color, expectedColor, "correct");
+                printTestResult(points[i], color, expectedColor, "correct");
             }
         }
         return result;
@@ -82,7 +82,7 @@ public class Main
         System.out.printf("(%.2f, %.2f)--> %s\n", point.getX(), point.getY(), color);
     }
 
-    private static void printResult(Point point, SimpleColor color, SimpleColor expectedColor, String conclusion)
+    private static void printTestResult(Point point, SimpleColor color, SimpleColor expectedColor, String conclusion)
     {
         System.out.printf("(%.2f ; %.2f)-->%s;  Expected: %s; Тhe result is %s.\n",
                 point.getX(), point.getY(), color, expectedColor, conclusion);
